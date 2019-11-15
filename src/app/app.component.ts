@@ -1,6 +1,6 @@
 import { Component ,OnInit} from '@angular/core';
 import {of,from} from "rxjs";
-import { map } from 'rxjs/operators';
+import { map,tap} from 'rxjs/operators';
 
 @Component({
   selector: 'my-app',
@@ -13,6 +13,9 @@ export class AppComponent implements OnInit {
       map(i=>i*2)
     ).subscribe(console.log)
     
+    of(2,4,6,8).pipe(
+      tap(i=>console.log(i))
+    )
   }
   name = 'Angular';
 }
